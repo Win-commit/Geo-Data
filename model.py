@@ -12,7 +12,7 @@ import sys
 class MyVGG(nn.Module):
     def __init__(self,feature_layers,device):
         '''
-        feature_layers:选取的特征层的索引
+        feature_layers:Index of the selected feature layer
         '''
         super(MyVGG,self).__init__()
         self.feature_layers=feature_layers
@@ -20,7 +20,7 @@ class MyVGG(nn.Module):
     
     def forward(self,x):
         '''
-        用于提取图像的不同尺度特征
+        Used to extract features of different scales from the image
         '''
         features=[]
         for i in range(len(self.net)):
@@ -69,19 +69,17 @@ class VideoImageComparator:
         average_loss = torch.mean(torch.stack(losses))
         return average_loss.item()
 
-    def compute_cosine_similarity(self,features1,features2):
+    def compute_cosine_similarity(self,features1:list,features2:list):
         '''
-        features1:1特征,列表
-        features2:2特征,列表
-        返回余弦相似度
+        returns cosine similarity
         '''
         cosine_similarities = []
         for feature1_map, feature2_map in zip(features1, features2):
-            # 展平特征图
+            # flatten the feature maps
             vec1 = feature1_map.view(-1)
             vec2 = feature2_map.view(-1)
 
-            # 计算余弦相似度
+            # compute cosine similarity
             cosine_sim = F.cosine_similarity(vec1.unsqueeze(0), vec2.unsqueeze(0))
             cosine_similarities.append(cosine_sim)
 

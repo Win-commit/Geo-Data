@@ -6,7 +6,7 @@ from utilities import *
 if __name__ == "__main__":
 
 
-    GOOGLE_MAP_KEY="AIzaSyCzwOlrzOcHSnmZHUPCJT7DnQjIR2Qgx9A"
+    GOOGLE_MAP_KEY="AIzaSyBXx-dirw_ai_W5xO9NSR80UtfPRLHmyo4"
     BASE_URL = "https://www.geoguessr.com/api/"
     change_token="j5QTVixXslrbDXHj"
     youtube_url="https://www.youtube.com/watch?v=t98r-YV6LnQ"  

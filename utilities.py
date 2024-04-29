@@ -76,26 +76,26 @@ def get_images(locations:list,save_folder,GOOGLE_MAP_KEY,size,fov):
 
 
 def find_consecutive_nums(numbers,target_num,num_of_sequences):
-    sequences = []  # 用于存储起始位置和长度的列表
-    current_start = None  # 用于记录当前序列的起始位置
-    current_length = 0  # 用于记录当前序列的长度
+    sequences = []  # A list used to store the start positions and lengths
+    current_start = None  # Used to record the starting position of the current sequence
+    current_length = 0  # Used to record the length of the current sequence
 
     for i, number in enumerate(numbers):
         if number == target_num:
             if current_length == 0:
-                current_start = i  # 如果当前长度为0，设置当前序列的起始位置
-            current_length += 1  # 增加当前序列的长度
+                current_start = i  
+            current_length += 1  
         else:
             if current_length > 0:
-                sequences.append((current_start, current_length))  # 添加序列到列表
-                current_start = None  # 重置当前序列的起始位置
-                current_length = 0  # 重置当前序列的长度
+                sequences.append((current_start, current_length)) 
+                current_start = None  
+                current_length = 0  
 
-    # 检查列表末尾的序列是否由5组成
+
     if current_length > 0:
         sequences.append((current_start, current_length))
 
-    # 根据序列长度对序列进行排序，得到最长的num_of_sequences个序列
+
     longest_sequences = sorted(sequences, key=lambda x: x[1], reverse=True)[:num_of_sequences]
     res = sorted(longest_sequences, key=lambda x: x[0], reverse=False)
     return res
@@ -146,7 +146,7 @@ def download_video(video_url,save_folder="video"):
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)
 
-    # 选择最高画质的视频流
+    # Select the video stream of the highest quality
     video_stream = yt.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').desc().first()
     if video_stream:
         # download video
@@ -154,7 +154,7 @@ def download_video(video_url,save_folder="video"):
         filepaths.append(file_name)
         video_stream.download(filename=file_name)
 
-    #   选择音频质量最高的音频流
+    #   Select the audio stream of the highest quality
     audio_stream = yt.streams.filter(only_audio=True).order_by('abr').desc().first()
     if audio_stream:
         # download audio
