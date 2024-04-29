@@ -25,6 +25,6 @@
 
 - Cause not every youtube video has a subtitle file,so I have to covert the audio to text by myself,using [google speech to text api](https://cloud.google.com/speech-to-text/docs/quickstart),which costs a lot of time in running the program.  
 
-- I use google map api to get the street view. **So you should have your own API key for it. You can looking for help [here]((https://developers.google.com/streetview/publish))**
+- I use google map api to get the street view. **So you should have your own API key for it. You can looking for help [here](https://developers.google.com/streetview/publish)**
 
 - **output in result.json**
