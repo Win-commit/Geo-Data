@@ -19,7 +19,7 @@
   python script.py
   ~~~
 
-  without any other options, because I hard-coded the YouTube links and the corresponding GeoGuessr links into the code
+  without any other options, because I hard-coded the YouTube link: https://www.youtube.com/watch?v=t98r-YV6LnQ  and the corresponding GeoGuessr link: https://www.geoguessr.com/challenge/j5QTVixXslrbDXHj into the code
 
 - <strong style="color: red;">Warning, if you are not using a proxy, please delete the two lines of code at the beginning of utilities.py that set the proxy interface</strong>
 
